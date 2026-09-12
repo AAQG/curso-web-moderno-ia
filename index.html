@@ -3,828 +3,453 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alex Quintanilla García | Desarrollador Front-End Web y Móvil (Flutter & Angular)</title>
-  <meta name="description" content="Portafolio profesional de Alex Quintanilla García (AAQG). Desarrollador Front-End Web y Móvil con Flutter y Angular, radicado en Ica, Perú. Creación de aplicaciones escalables, limpias y multiplataforma.">
-  <meta name="keywords" content="Alex Quintanilla, Alex Quintanilla García, Desarrollador Web, Flutter, Angular, Riverpod, TailwindCSS, Ica Peru, Front-End, Mobile Developer, AAQG">
-  <meta name="author" content="Alex Quintanilla García (AAQG)">
+  <title>Alex Quintanilla García (AAQG) | Desarrollador Front-End & Móvil</title>
+  <meta name="description" content="Insignia y portafolio interactivo de Alex Quintanilla García (AAQG). Especialista en Flutter, Angular y Riverpod desde Ica, Perú.">
+  <meta name="keywords" content="Alex Quintanilla García, AAQG, Flutter, Angular, Riverpod, Frontend Developer, Mobile Developer, Ica Peru">
+  <meta name="author" content="Alex Quintanilla García">
 
-  <!-- Open Graph / Redes Sociales -->
-  <meta property="og:title" content="Alex Quintanilla García | Desarrollador Front-End Web y Móvil">
-  <meta property="og:description" content="Especialista en desarrollo web con Angular y móvil con Flutter & Riverpod. Desde Ica, Perú.">
-  <meta property="og:type" content="website">
+  <!-- Favicon SVG Monocromático -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'><rect width='24' height='24' rx='6' fill='%23000000'/><path d='M8 6l8 6-8 6V6z' fill='%23ffffff'/></svg>">
 
-  <!-- Favicon SVG -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2338BDF8'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
-
-  <!-- Hoja de Estilos Principal -->
+  <!-- Estilos Minimalistas -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- Luces Ambientales de Fondo -->
-  <div class="bg-ambient-light" aria-hidden="true">
-    <div class="ambient-orb orb-1"></div>
-    <div class="ambient-orb orb-2"></div>
-    <div class="ambient-orb orb-3"></div>
-  </div>
-  <div class="bg-grid-overlay" aria-hidden="true"></div>
+  <!-- Spotlight interactivo con cursor -->
+  <div class="cursor-spotlight" id="cursorSpotlight" aria-hidden="true"></div>
 
-  <!-- Header / Barra de Navegación -->
-  <header class="header-nav" id="headerNav">
-    <div class="container nav-content">
-      <a href="#hero" class="brand-logo" id="brandLogo">
-        <span>&lt;Alex</span><span class="gradient-text-flutter">Quintanilla</span><span> /&gt;</span>
-        <span class="logo-badge">AAQG &bull; Ica 🇵🇪</span>
-      </a>
-
-      <!-- Navegación de Escritorio -->
-      <nav class="desktop-nav" aria-label="Navegación principal">
-        <ul class="nav-links">
-          <li><a href="#hero" class="nav-link active">Inicio</a></li>
-          <li><a href="#about" class="nav-link">Sobre Mí</a></li>
-          <li><a href="#skills" class="nav-link">Habilidades</a></li>
-          <li><a href="#projects" class="nav-link">Proyectos</a></li>
-          <li><a href="#github-stats" class="nav-link">Actividad</a></li>
-          <li><a href="#methodology" class="nav-link">Metodología</a></li>
-        </ul>
+  <!-- Header Dock Flotante Ultra-Minimalista -->
+  <div class="minimal-dock-wrapper">
+    <header class="minimal-dock">
+      <a href="#hero" class="dock-brand">&lt;AQ /&gt;</a>
+      <nav class="dock-links">
+        <a href="#hero" class="dock-link active">Inicio</a>
+        <a href="#skills" class="dock-link">Stack</a>
+        <a href="#projects" class="dock-link">Proyectos</a>
+        <a href="#stats" class="dock-link">GitHub</a>
+        <a href="#contact" class="dock-link">Contacto</a>
       </nav>
+      <a href="#contact" class="dock-cta">Hablemos &nearr;</a>
+    </header>
+  </div>
 
-      <div class="nav-actions">
-        <a href="#contact" class="btn btn-primary btn-sm btn-contact-nav" id="navContactBtn">
-          <span>Hablemos</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-        </a>
-
-        <!-- Botón Hamburguesa Móvil -->
-        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir menú de navegación" aria-expanded="false">
-          <svg id="menuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Menú Desplegable Móvil -->
-  <aside class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
-    <ul class="mobile-nav-links">
-      <li>
-        <a href="#hero" class="mobile-nav-link" data-mobile-link>
-          <span>🏠</span> Inicio
-        </a>
-      </li>
-      <li>
-        <a href="#about" class="mobile-nav-link" data-mobile-link>
-          <span>🚀</span> Sobre Mí
-        </a>
-      </li>
-      <li>
-        <a href="#skills" class="mobile-nav-link" data-mobile-link>
-          <span>🛠️</span> Tech Stack
-        </a>
-      </li>
-      <li>
-        <a href="#projects" class="mobile-nav-link" data-mobile-link>
-          <span>💼</span> Proyectos
-        </a>
-      </li>
-      <li>
-        <a href="#github-stats" class="mobile-nav-link" data-mobile-link>
-          <span>📊</span> GitHub Streak
-        </a>
-      </li>
-      <li>
-        <a href="#methodology" class="mobile-nav-link" data-mobile-link>
-          <span>🧩</span> Metodología
-        </a>
-      </li>
-      <li>
-        <a href="#contact" class="mobile-nav-link" data-mobile-link>
-          <span>📫</span> Contacto
-        </a>
-      </li>
-    </ul>
-
-    <div class="mobile-menu-footer">
-      <a href="#contact" class="btn btn-primary" style="width: 100%;" data-mobile-link>
-        Iniciar Conversación 💬
-      </a>
-    </div>
-  </aside>
-
-  <!-- SECCIÓN HERO -->
   <main>
+    <!-- SECCIÓN 01: HERO CON INSIGNIA PERSONAL 3D -->
     <section class="hero-section" id="hero">
       <div class="container">
         <div class="hero-grid">
-          <!-- Columna Izquierda: Información Principal -->
-          <div class="hero-text-content">
-            <div class="hero-status-pill">
-              <span class="status-dot"></span>
-              <span>🌍 Desde <strong>Ica, Perú 🇵🇪</strong> &bull; Disponible para proyectos</span>
-            </div>
-
-            <div class="hero-name-label">
-              ¡Hola! Soy <strong>Alex Quintanilla García</strong> 👋
+          
+          <!-- Lado Izquierdo: Resumen Ejecutivo -->
+          <div>
+            <div class="hero-tag">
+              <span>🇵🇪</span>
+              <span>ICA, PERÚ &bull; LAT: -14.0678 | LON: -75.7286</span>
             </div>
 
             <h1 class="hero-title">
-              💻 Desarrollador <br>
-              <span class="gradient-text-angular">Front-End Web</span> y <br>
-              <span class="gradient-text-flutter">Móvil con Flutter</span>
+              DESARROLLADOR <br>
+              <span>FRONT-END</span> &amp; <br>
+              <span class="outline">MÓVIL FLUTTER</span>
             </h1>
 
-            <p class="hero-subtitle">
-              Transformo ideas en interfaces de alto impacto, limpias y altamente escalables tanto en navegadores modernos con <strong>Angular</strong> como en aplicaciones móviles nativas con <strong>Flutter & Riverpod</strong>.
+            <p class="hero-description">
+              Creación de aplicaciones web modulares y aplicaciones móviles nativas de alto impacto. Pasión por la arquitectura limpia y la experiencia de usuario fluida.
             </p>
 
-            <!-- Badges destacados del perfil -->
-            <div class="hero-badges-row" aria-label="Tecnologías destacadas">
-              <span class="tech-badge-pill angular">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 5.5l1.6 13.1L12 22l8.4-3.4L22 5.5 12 2zm0 2.8l6.3 14-2.1-.1-1.3-3.2H9.1l-1.3 3.2-2.1.1 6.3-14zm0 4.3l-2.4 5.9h4.8L12 9.1z"/></svg>
-                Web: Angular
-              </span>
-              <span class="tech-badge-pill flutter">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14.3 2L5 11.3l2.8 2.8L19.9 2h-5.6zM5 11.3l5.6 5.6-5.6 5.6H11l5.6-5.6-5.6-5.6H5zm8.5 2.8l2.8-2.8 5.6 5.6-2.8 2.8-5.6-5.6z"/></svg>
-                Mobile: Flutter
-              </span>
-              <span class="tech-badge-pill riverpod">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="9"/></svg>
-                State: Riverpod
-              </span>
-              <span class="tech-badge-pill tailwind">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 6c-3 0-5.5 1.5-6.5 4 1-1.5 2.5-2 4-1.5 1 .3 1.8 1.1 2.6 1.9C13.4 11.7 15 13 18 13c3 0 5.5-1.5 6.5-4-1 1.5-2.5 2-4 1.5-1-.3-1.8-1.1-2.6-1.9C16.6 7.3 15 6 12 6z"/></svg>
-                Style: TailwindCSS
-              </span>
-              <span class="tech-badge-pill scrum">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                Agile: Scrum
-              </span>
-              <span class="tech-badge-pill">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                GitHub: AAQG
-              </span>
+            <!-- Hoja de Especificaciones Directas -->
+            <div class="hero-specs-card">
+              <div class="spec-row">
+                <span class="spec-k">INGENIERO:</span>
+                <span class="spec-v">Alex Quintanilla García (AAQG)</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-k">WEB STACK:</span>
+                <span class="spec-v">Angular &bull; TailwindCSS &bull; RxJS &bull; TypeScript</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-k">MOBILE STACK:</span>
+                <span class="spec-v">Flutter &bull; Dart &bull; Riverpod &bull; Clean Architecture</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-k">METODOLOGÍA:</span>
+                <span class="spec-v">Scrum &bull; Kanban &bull; Git Flow</span>
+              </div>
             </div>
 
-            <!-- Botones de Acción CTA -->
-            <div class="hero-cta-group">
-              <a href="#projects" class="btn btn-primary" id="btnExploreProjects">
-                <span>Ver Proyectos</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <!-- Botones de Acción -->
+            <div class="hero-ctas">
+              <a href="#projects" class="btn-mono">VER PROYECTOS &rarr;</a>
+              <button class="btn-mono btn-mono-outline" id="btnCopyEmail">COPIAR CORREO</button>
+              
+              <a href="https://www.linkedin.com/in/alex-quintanilla-garcia-112427238/" target="_blank" rel="noopener noreferrer" class="btn-mono btn-mono-outline" title="LinkedIn" aria-label="LinkedIn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37h2.79V10.9H6.46M7.86 6.88a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z"/></svg>
               </a>
 
-              <a href="#contact" class="btn btn-secondary" id="btnConnectHero">
-                <span>Vamos a Conectarnos</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-              </a>
-
-              <!-- Botón LinkedIn -->
-              <a href="https://www.linkedin.com/in/alex-quintanilla-garcia-112427238/" target="_blank" rel="noopener noreferrer" class="btn btn-icon" aria-label="Perfil de LinkedIn de Alex Quintanilla García" title="Ver LinkedIn Alex Quintanilla">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37h2.79V10.9H6.46M7.86 6.88a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z"/></svg>
-              </a>
-
-              <!-- Botón GitHub -->
-              <a href="https://github.com/AAQG" target="_blank" rel="noopener noreferrer" class="btn btn-icon" aria-label="Perfil de GitHub AAQG" title="Ver GitHub AAQG">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <a href="https://github.com/AAQG" target="_blank" rel="noopener noreferrer" class="btn-mono btn-mono-outline" title="GitHub" aria-label="GitHub">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
               </a>
             </div>
           </div>
 
-          <!-- Columna Derecha: Card Visual con Foto de Perfil & Terminal -->
-          <div class="hero-card-container">
-            <div class="hero-visual-card">
-              <div class="avatar-wrapper">
-                <img src="assets/images/profile.jpg" alt="Alex Quintanilla García - Desarrollador Front-End y Móvil" class="avatar-image">
-                <div class="hero-floating-chip">
-                  <span>⚡</span> Flutter & Angular Dev
-                </div>
+          <!-- Lado Derecho: Insignia Personal 3D -->
+          <div class="badge-wrapper">
+            <div class="dev-badge" id="devBadge">
+              <div class="badge-glare" id="badgeGlare"></div>
+              <div class="badge-slot"></div>
+
+              <div class="badge-top">
+                <span>DEV // CREDENTIAL</span>
+                <span style="color: var(--white); font-weight: 700;">AAQG-2026-PE</span>
               </div>
 
-              <!-- Ventana de Código Mockup -->
-              <div class="code-snippet-box">
-                <div class="code-snippet-header">
-                  <div class="window-dots">
-                    <span class="window-dot dot-red"></span>
-                    <span class="window-dot dot-yellow"></span>
-                    <span class="window-dot dot-green"></span>
-                  </div>
-                  <span class="code-comment">profile.dart</span>
+              <div class="badge-photo-box">
+                <img src="assets/images/profile.jpg" alt="Alex Quintanilla García" class="badge-photo-img">
+                <div class="badge-stamp">VERIFIED DEV</div>
+              </div>
+
+              <div class="badge-info">
+                <h2 class="badge-name">Alex Quintanilla García</h2>
+                <div class="badge-role">Front-End Web &amp; Mobile Engineer</div>
+              </div>
+
+              <div class="badge-pills">
+                <span class="badge-pill">FLUTTER</span>
+                <span class="badge-pill">ANGULAR</span>
+                <span class="badge-pill">RIVERPOD</span>
+                <span class="badge-pill">TAILWIND</span>
+              </div>
+
+              <div class="badge-footer">
+                <div class="barcode-simple" aria-hidden="true">
+                  <span class="bar-line" style="width: 3px;"></span>
+                  <span class="bar-line" style="width: 1px;"></span>
+                  <span class="bar-line" style="width: 4px;"></span>
+                  <span class="bar-line" style="width: 2px;"></span>
+                  <span class="bar-line" style="width: 5px;"></span>
+                  <span class="bar-line" style="width: 2px;"></span>
+                  <span class="bar-line" style="width: 4px;"></span>
+                  <span class="bar-line" style="width: 2px;"></span>
+                  <span class="bar-line" style="width: 3px;"></span>
                 </div>
-                <code>
-                  <span class="code-keyword">final</span> developer = Developer(<br>
-                  &nbsp;&nbsp;name: <span class="code-string">'Alex Quintanilla García'</span>,<br>
-                  &nbsp;&nbsp;location: <span class="code-string">'Ica, Perú 🇵🇪'</span>,<br>
-                  &nbsp;&nbsp;specialties: [<span class="code-string">'Web (Angular)'</span>, <span class="code-string">'Mobile (Flutter)'</span>],<br>
-                  &nbsp;&nbsp;status: <span class="code-class">Status.readyForNewChallenges</span><br>
-                  );
-                </code>
+                <span>ICA &bull; PERÚ 🇵🇪</span>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECCIÓN SOBRE MÍ -->
-    <section class="about-section" id="about">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">🚀 Acerca de mí</span>
-          <h2 class="section-title">Pasión por el Código Limpio y la Arquitectura Escalable</h2>
-          <p class="section-desc">
-            Diseñando soluciones multiplataforma con enfoque centrado en la experiencia del usuario y buenas prácticas.
-          </p>
-        </div>
-
-        <div class="about-grid">
-          <!-- Tarjeta Principal de Historia -->
-          <article class="about-card">
-            <div class="about-narrative">
-              <p>
-                🎯 Soy un apasionado <strong>Desarrollador Web Front-End</strong> y <strong>Desarrollador Móvil</strong> radicado en 🇵🇪 <strong>Ica, Perú</strong>. Me enfoco en transformar necesidades comerciales en productos digitales intuitivos, modernos y altamente eficientes.
-              </p>
-              <p>
-                💡 Me apasiona crear aplicaciones limpias, escalables y fáciles de usar tanto para plataformas web (utilizando el ecosistema reactivo de <strong>Angular</strong> y estilos utilitarios con <strong>TailwindCSS</strong>) como para dispositivos móviles (mediante <strong>Flutter</strong> y gestión de estado avanzada con <strong>Riverpod</strong>).
-              </p>
-              <p>
-                Trabajo bajo marcos ágiles como <strong>Scrum</strong> y <strong>Kanban</strong>, aplicando principios de <strong>Clean Architecture</strong> y <strong>SOLID</strong> para mantener bases de código modulares, testeables y preparadas para crecer en producción.
-              </p>
-            </div>
-
-            <!-- Métricas / Contadores -->
-            <div class="stats-grid">
-              <div class="stat-item">
-                <span class="stat-number" data-target="100">100%</span>
-                <span class="stat-label">Compromiso Ágil & Clean Code</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-number" data-target="2">2+</span>
-                <span class="stat-label">Plataformas Clave (Web & Móvil)</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-number" data-target="365">365</span>
-                <span class="stat-label">Días de Aprendizaje Continuo</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Tarjetas Secundarias -->
-          <div class="about-side-stack">
-            <!-- Ubicación -->
-            <div class="location-card">
-              <div class="location-badge">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                📍 Ubicación Estratégica
-              </div>
-              <h3 class="location-title">Ica, Perú 🇵🇪</h3>
-              <p class="location-meta">
-                Trabajando de manera remota para equipos globales. Zona horaria <strong>UTC-5 (PET)</strong>, ideal para sincronización con Norteamérica y Latinoamérica.
-              </p>
-            </div>
-
-            <!-- Principios y Metodología en píldoras -->
-            <div class="methodology-preview-card">
-              <h3 class="location-title">🧩 Filosofía de Desarrollo</h3>
-              <p class="location-meta">
-                Calidad de código, colaboración transparente y entregas iterativas continuas.
-              </p>
-              <div class="badge-list-mini">
-                <span class="mini-badge">🛡️ Principios SOLID</span>
-                <span class="mini-badge">🏗️ Clean Architecture</span>
-                <span class="mini-badge">🔄 Git Flow & GitHub</span>
-                <span class="mini-badge">🏃 Scrum & Sprints</span>
-                <span class="mini-badge">📱 Mobile First</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECCIÓN DE HABILIDADES / TECH STACK -->
-    <section class="skills-section" id="skills">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">🛠️ Tech Stack</span>
-          <h2 class="section-title">Herramientas y Tecnologías</h2>
-          <p class="section-desc">
-            Conjunto de tecnologías modernas para entregar aplicaciones estables, fluidas y con un rendimiento sobresaliente.
-          </p>
-        </div>
-
-        <div class="skills-container">
-          <!-- Categoría 1: Web Development -->
-          <div class="skill-category-card">
-            <div class="skill-cat-header">
-              <div class="cat-icon-box angular-icon">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-              </div>
-              <div>
-                <h3 class="cat-title">Web Development</h3>
-                <span class="cat-subtitle">Ecosistema Frontend Reactivo</span>
-              </div>
-            </div>
-
-            <ul class="skill-items-list">
-              <li class="skill-item">
-                <div class="skill-info">
-                  <span>Angular (SPA & Modular)</span>
-                  <span class="gradient-text-angular">Avanzado</span>
-                </div>
-                <div class="skill-bar-bg">
-                  <div class="skill-bar-fill angular-fill" style="width: 90%;"></div>
-                </div>
-              </li>
-              <li class="skill-item">
-                <div class="skill-info">
-                  <span>JavaScript (ES6+) & TypeScript</span>
-                  <span>Dominio</span>
-                </div>
-                <div class="skill-bar-bg">
-                  <div class="skill-bar-fill angular-fill" style="width: 88%;"></div>
-                </div>
-              </li>
-              <li class="skill-item">
-                <div class="skill-info">
-                  <span>TailwindCSS & Modern CSS</span>
-                  <span>Experto UI</span>
-                </div>
-                <div class="skill-bar-bg">
-                  <div class="skill-bar-fill angular-fill" style="width: 92%;"></div>
-                </div>
-              </li>
-              <li class="skill-item">
-                <div class="skill-info">
-                  <span>RxJS (Programación Reactiva)</span>
-                  <span>Especialidad</span>
-                </div>
-                <div class="skill-bar-bg">
-                  <div class="skill-bar-fill angular-fill" style="width: 85%;"></div>
-                </div>
-              </li>
-              <li class="skill-item">
-                <div class="skill-info">
-                  <span>Bootstrap</span>
-                  <span>Sólido</span>
-                </div>
-                <div class="skill-bar-bg">
-                  <div class="skill-bar-fill angular-fill" style="width: 86%;"></div>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Categoría 2: Mobile Development -->
-          <div class="skill-category-card">
-            <div class="skill-cat-header">
-              <div class="cat-icon-box">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-              </div>
-              <div>
-                <h3 class="cat-title">Mobile Development</h3>
-                <span class="cat-subtitle">Desarrollo Multiplataforma</span>
-              </div>
-            </div>
-
-            <ul class="skill-items-list">
-              <li class="skill-item">
-                <div class="skill-info">
-                  <span>Flutter (iOS & Android)</span>
-                  <span class="gradient-text-flutter">Principal</span>
-                </div>
-                <div class="skill-bar-bg">
-                  <div class="skill-bar-fill" style="width: 92%;"></div>
-                </div>
-              </li>
-              <li class="skill-item">
-                <div class="skill-info">
-                  <span>Riverpod State Management</span>
-                  <span>Especialidad</span>
-                </div>
-                <div class="skill-bar-bg">
-                  <div class="skill-bar-fill" style="width: 90%;"></div>
-                </div>
-              </li>
-              <li class="skill-item">
-                <div class="skill-info">
-                  <span>Dart Programming</span>
-                  <span>Avanzado</span>
-                </div>
-                <div class="skill-bar-bg">
-                  <div class="skill-bar-fill" style="width: 88%;"></div>
-                </div>
-              </li>
-              <li class="skill-item">
-                <div class="skill-info">
-                  <span>Clean Architecture Móvil</span>
-                  <span>Modular</span>
-                </div>
-                <div class="skill-bar-bg">
-                  <div class="skill-bar-fill" style="width: 85%;"></div>
-                </div>
-              </li>
-              <li class="skill-item">
-                <div class="skill-info">
-                  <span>Consumo de APIs REST / JSON</span>
-                  <span>Fluido</span>
-                </div>
-                <div class="skill-bar-bg">
-                  <div class="skill-bar-fill" style="width: 90%;"></div>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Categoría 3: Metodologías y Herramientas -->
-          <div class="skill-category-card">
-            <div class="skill-cat-header">
-              <div class="cat-icon-box method-icon">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-              </div>
-              <div>
-                <h3 class="cat-title">Habilidades Ágiles</h3>
-                <span class="cat-subtitle">Flujo de Trabajo & Control</span>
-              </div>
-            </div>
-
-            <ul class="skill-items-list">
-              <li class="skill-item">
-                <div class="skill-info">
-                  <span>Git & GitHub (Control de Versiones)</span>
-                  <span style="color: #34d399;">Avanzado</span>
-                </div>
-                <div class="skill-bar-bg">
-                  <div class="skill-bar-fill method-fill" style="width: 94%;"></div>
-                </div>
-              </li>
-              <li class="skill-item">
-                <div class="skill-info">
-                  <span>Agile (Scrum & Kanban)</span>
-                  <span>Sprints</span>
-                </div>
-                <div class="skill-bar-bg">
-                  <div class="skill-bar-fill method-fill" style="width: 90%;"></div>
-                </div>
-              </li>
-              <li class="skill-item">
-                <div class="skill-info">
-                  <span>Jira & Trello (Task Tracking)</span>
-                  <span>Organizado</span>
-                </div>
-                <div class="skill-bar-bg">
-                  <div class="skill-bar-fill method-fill" style="width: 88%;"></div>
-                </div>
-              </li>
-              <li class="skill-item">
-                <div class="skill-info">
-                  <span>Principios SOLID & Clean Code</span>
-                  <span>Buenas Prácticas</span>
-                </div>
-                <div class="skill-bar-bg">
-                  <div class="skill-bar-fill method-fill" style="width: 85%;"></div>
-                </div>
-              </li>
-              <li class="skill-item">
-                <div class="skill-info">
-                  <span>Trabajo Colaborativo en Equipo</span>
-                  <span>100%</span>
-                </div>
-                <div class="skill-bar-bg">
-                  <div class="skill-bar-fill method-fill" style="width: 95%;"></div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECCIÓN DE PROYECTOS DESTACADOS -->
-    <section class="projects-section" id="projects">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">💼 Proyectos Destacados</span>
-          <h2 class="section-title">Portafolio de Soluciones Reales</h2>
-          <p class="section-desc">
-            Demostración práctica de mis capacidades en desarrollo móvil con Flutter y web moderna con Angular.
-          </p>
-        </div>
-
-        <!-- Filtros Dinámicos -->
-        <div class="projects-filter-bar" role="tablist" aria-label="Filtro de proyectos">
-          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">Todos los Proyectos</button>
-          <button class="filter-btn" data-filter="mobile" role="tab" aria-selected="false">📱 Móvil (Flutter)</button>
-          <button class="filter-btn" data-filter="web" role="tab" aria-selected="false">🌐 Web (Angular)</button>
-        </div>
-
-        <!-- Grid de Proyectos -->
-        <div class="projects-grid" id="projectsGrid">
-
-          <!-- Proyecto 1: AgroIca Mobile -->
-          <article class="project-card" data-category="mobile">
-            <div class="project-thumbnail-wrapper">
-              <img src="assets/images/agroica.jpg" alt="AgroIca - App Móvil de Gestión Agrícola con Flutter" class="project-thumbnail" loading="lazy">
-              <span class="project-tag-pill">📱 Flutter + Riverpod</span>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">AgroIca - App de Riego y Cultivos</h3>
-              <p class="project-description">
-                Aplicación móvil inteligente para la gestión de campos agrícolas en los valles de Ica. Permite monitoreo de humedad del suelo, métricas satelitales NDVI en tiempo real y automatización de riego por sectores.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-chip">Flutter</span>
-                <span class="tech-chip">Riverpod</span>
-                <span class="tech-chip">Clean Architecture</span>
-                <span class="tech-chip">Charts</span>
-                <span class="tech-chip">REST API</span>
-              </div>
-              <div class="project-actions">
-                <a href="#contact" class="btn btn-primary btn-sm">
-                  <span>Ver Detalles</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </a>
-                <a href="https://github.com/AAQG" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                  <span>Repositorio</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Proyecto 2: EduTrack Dashboard -->
-          <article class="project-card" data-category="web">
-            <div class="project-thumbnail-wrapper">
-              <img src="assets/images/edutrack.jpg" alt="EduTrack Dashboard - Panel Administrativo con Angular y TailwindCSS" class="project-thumbnail" loading="lazy">
-              <span class="project-tag-pill web">🌐 Angular + Tailwind</span>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">EduTrack - Analytics Educativo</h3>
-              <p class="project-description">
-                Panel web de control para instituciones educativas y seguimiento de alumnos. Construido con arquitectura modular en Angular, reactividad avanzada con RxJS y estilizado con TailwindCSS para un tema oscuro elegante.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-chip">Angular</span>
-                <span class="tech-chip">TailwindCSS</span>
-                <span class="tech-chip">RxJS</span>
-                <span class="tech-chip">Data Visualization</span>
-                <span class="tech-chip">TypeScript</span>
-              </div>
-              <div class="project-actions">
-                <a href="#contact" class="btn btn-primary btn-sm">
-                  <span>Ver Detalles</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </a>
-                <a href="https://github.com/AAQG" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                  <span>Repositorio</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Proyecto 3: QuickDrop Delivery -->
-          <article class="project-card" data-category="mobile">
-            <div class="project-thumbnail-wrapper">
-              <img src="assets/images/delivery.jpg" alt="QuickDrop Delivery - Aplicación Móvil con Flutter" class="project-thumbnail" loading="lazy">
-              <span class="project-tag-pill">📱 Flutter + Riverpod</span>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">QuickDrop - Delivery en Tiempo Real</h3>
-              <p class="project-description">
-                Solución móvil de entregas con geolocalización en tiempo real, cálculo dinámico de tiempos de llegada y arquitectura basada en Riverpod para un estado desacoplado y reactivo.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-chip">Flutter</span>
-                <span class="tech-chip">Riverpod</span>
-                <span class="tech-chip">Mapbox/GPS</span>
-                <span class="tech-chip">Websockets</span>
-                <span class="tech-chip">Dart</span>
-              </div>
-              <div class="project-actions">
-                <a href="#contact" class="btn btn-primary btn-sm">
-                  <span>Ver Detalles</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </a>
-                <a href="https://github.com/AAQG" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                  <span>Repositorio</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Proyecto 4: Finanzy Web App -->
-          <article class="project-card" data-category="web">
-            <div class="project-thumbnail-wrapper">
-              <img src="assets/images/finanzy.jpg" alt="Finanzy - Plataforma Fintech con Angular y RxJS" class="project-thumbnail" loading="lazy">
-              <span class="project-tag-pill web">🌐 Angular + RxJS</span>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Finanzy - Plataforma Financiera</h3>
-              <p class="project-description">
-                Aplicación web financiera para control de carteras de inversión, balances y activos múltiples con diseño glassmorphism avanzado y actualización asíncrona mediante Observables RxJS.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-chip">Angular</span>
-                <span class="tech-chip">RxJS</span>
-                <span class="tech-chip">TailwindCSS</span>
-                <span class="tech-chip">Glassmorphism</span>
-                <span class="tech-chip">Finance API</span>
-              </div>
-              <div class="project-actions">
-                <a href="#contact" class="btn btn-primary btn-sm">
-                  <span>Ver Detalles</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </a>
-                <a href="https://github.com/AAQG" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                  <span>Repositorio</span>
-                </a>
-              </div>
-            </div>
-          </article>
 
         </div>
       </div>
     </section>
 
-    <!-- SECCIÓN DE GITHUB STREAK Y ACTIVIDAD -->
-    <section class="github-stats-section" id="github-stats">
+    <!-- SECCIÓN 02: STACK TECNOLÓGICO -->
+    <section class="content-section" id="skills">
       <div class="container">
-        <div class="section-header">
-          <span class="section-tag">📈 Consistencia & Enfoque</span>
-          <h2 class="section-title">Actividad en GitHub</h2>
+        <div class="section-head">
+          <div>
+            <span class="section-tag">// 02. STACK TECNOLÓGICO</span>
+            <h2 class="section-title">Tecnologías Principales</h2>
+          </div>
           <p class="section-desc">
-            Disciplina diaria y aportes continuos al ecosistema de código abierto y proyectos personales.
+            Conjunto de herramientas dominadas para la construcción de interfaces multiplataforma de alto rendimiento.
           </p>
         </div>
 
-        <div class="streak-card-wrapper">
-          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">🔥 GitHub Streak Stats: <span class="gradient-text-flutter">@AAQG</span></h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">Métrica en vivo conectada directamente con mi cuenta de desarrollador:</p>
+        <div class="tech-grid">
+          <!-- 1. Flutter -->
+          <div class="tech-card">
+            <div class="tech-icon" title="Flutter">
+              <svg viewBox="0 0 24 24"><path d="M14.314 0L2.3 12l3.6 3.6L21.514 0h-7.2zm0 8.8L8.6 14.5l3.6 3.6 5.714-5.7L14.314 8.8zm-5.7 8.9L5.014 21.3h7.2l3.6-3.6-7.2 0z"/></svg>
+            </div>
+            <div class="tech-name">Flutter</div>
+            <span class="tech-sub">MOBILE &bull; DART</span>
+          </div>
+
+          <!-- 2. Angular -->
+          <div class="tech-card">
+            <div class="tech-icon" title="Angular">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 5.5l1.6 13.1L12 22l8.4-3.4L22 5.5 12 2zm0 2.8l6.3 14-2.1-.1-1.3-3.2H9.1l-1.3 3.2-2.1.1 6.3-14zm0 4.3l-2.4 5.9h4.8L12 9.1z"/></svg>
+            </div>
+            <div class="tech-name">Angular</div>
+            <span class="tech-sub">WEB &bull; SPA</span>
+          </div>
+
+          <!-- 3. Riverpod -->
+          <div class="tech-card">
+            <div class="tech-icon" title="Riverpod">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            </div>
+            <div class="tech-name">Riverpod</div>
+            <span class="tech-sub">STATE MANAGEMENT</span>
+          </div>
+
+          <!-- 4. TailwindCSS -->
+          <div class="tech-card">
+            <div class="tech-icon" title="TailwindCSS">
+              <svg viewBox="0 0 24 24"><path d="M12 6c-3 0-5.5 1.5-6.5 4 1-1.5 2.5-2 4-1.5 1 .3 1.8 1.1 2.6 1.9C13.4 11.7 15 13 18 13c3 0 5.5-1.5 6.5-4-1 1.5-2.5 2-4 1.5-1-.3-1.8-1.1-2.6-1.9C16.6 7.3 15 6 12 6zm-8 7c-3 0-5.5 1.5-6.5 4 1-1.5 2.5-2 4-1.5 1 .3 1.8 1.1 2.6 1.9C5.4 18.7 7 20 10 20c3 0 5.5-1.5 6.5-4-1 1.5-2.5 2-4 1.5-1-.3-1.8-1.1-2.6-1.9C8.6 14.3 7 13 4 13z"/></svg>
+            </div>
+            <div class="tech-name">TailwindCSS</div>
+            <span class="tech-sub">MODERN STYLES</span>
+          </div>
+
+          <!-- 5. JavaScript / TypeScript -->
+          <div class="tech-card">
+            <div class="tech-icon" title="JavaScript">
+              <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm11.5 13.5c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5v-7h-1.5v7zm-5 0c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5v-4h-1.5v4z"/></svg>
+            </div>
+            <div class="tech-name">JavaScript &bull; TS</div>
+            <span class="tech-sub">LOGIC &bull; ES6+</span>
+          </div>
+
+          <!-- 6. RxJS -->
+          <div class="tech-card">
+            <div class="tech-icon" title="RxJS">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div class="tech-name">RxJS</div>
+            <span class="tech-sub">REACTIVE FLOW</span>
+          </div>
+
+          <!-- 7. Scrum / Agile -->
+          <div class="tech-card">
+            <div class="tech-icon" title="Scrum">
+              <svg viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
+            </div>
+            <div class="tech-name">Scrum &amp; Kanban</div>
+            <span class="tech-sub">AGILE SPRINTS</span>
+          </div>
+
+          <!-- 8. Git & GitHub -->
+          <div class="tech-card">
+            <div class="tech-icon" title="Git & GitHub">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </div>
+            <div class="tech-name">Git &amp; GitHub</div>
+            <span class="tech-sub">VERSION CONTROL</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 03: PROYECTOS SELECCIONADOS -->
+    <section class="content-section" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-tag">// 03. SHOWCASE</span>
+            <h2 class="section-title">Proyectos Seleccionados</h2>
+          </div>
           
-          <div class="streak-img-container">
+          <!-- Filtro Interactivo -->
+          <div class="filter-tabs">
+            <button class="filter-pill active" data-filter="all">TODOS [4]</button>
+            <button class="filter-pill" data-filter="mobile">MÓVIL FLUTTER [2]</button>
+            <button class="filter-pill" data-filter="web">WEB ANGULAR [2]</button>
+          </div>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Proyecto 1: AgroIca -->
+          <article class="project-item" data-category="mobile">
+            <div class="project-thumb">
+              <img src="assets/images/agroica.jpg" alt="AgroIca App Móvil Flutter" loading="lazy">
+              <span class="project-tag">FLUTTER &bull; RIVERPOD</span>
+            </div>
+            <div class="project-details">
+              <h3 class="project-heading">AgroIca Smart Farming</h3>
+              <p class="project-desc">
+                App móvil para monitoreo y automatización de riego por sectores en el valle de Ica.
+              </p>
+              <div class="project-chips">
+                <span class="chip">Flutter</span>
+                <span class="chip">Riverpod</span>
+                <span class="chip">Clean Arch</span>
+                <span class="chip">REST API</span>
+              </div>
+              <div class="project-actions">
+                <a href="#contact" class="btn-mono btn-sm">DETALLES &rarr;</a>
+                <a href="https://github.com/AAQG" target="_blank" rel="noopener noreferrer" class="btn-mono btn-mono-outline btn-sm">REPOSITORIO &nearr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Proyecto 2: EduTrack -->
+          <article class="project-item" data-category="web">
+            <div class="project-thumb">
+              <img src="assets/images/edutrack.jpg" alt="EduTrack Dashboard Angular" loading="lazy">
+              <span class="project-tag">ANGULAR &bull; TAILWIND</span>
+            </div>
+            <div class="project-details">
+              <h3 class="project-heading">EduTrack Analytics</h3>
+              <p class="project-desc">
+                Dashboard administrativo con métricas académicas en vivo y reactividad avanzada con RxJS.
+              </p>
+              <div class="project-chips">
+                <span class="chip">Angular</span>
+                <span class="chip">RxJS</span>
+                <span class="chip">TailwindCSS</span>
+                <span class="chip">TypeScript</span>
+              </div>
+              <div class="project-actions">
+                <a href="#contact" class="btn-mono btn-sm">DETALLES &rarr;</a>
+                <a href="https://github.com/AAQG" target="_blank" rel="noopener noreferrer" class="btn-mono btn-mono-outline btn-sm">REPOSITORIO &nearr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Proyecto 3: QuickDrop -->
+          <article class="project-item" data-category="mobile">
+            <div class="project-thumb">
+              <img src="assets/images/delivery.jpg" alt="QuickDrop Delivery Flutter" loading="lazy">
+              <span class="project-tag">FLUTTER &bull; GPS</span>
+            </div>
+            <div class="project-details">
+              <h3 class="project-heading">QuickDrop Delivery</h3>
+              <p class="project-desc">
+                Solución de pedidos y entregas con seguimiento GPS en tiempo real y arquitectura desacoplada.
+              </p>
+              <div class="project-chips">
+                <span class="chip">Flutter</span>
+                <span class="chip">Riverpod</span>
+                <span class="chip">Mapbox</span>
+                <span class="chip">WebSockets</span>
+              </div>
+              <div class="project-actions">
+                <a href="#contact" class="btn-mono btn-sm">DETALLES &rarr;</a>
+                <a href="https://github.com/AAQG" target="_blank" rel="noopener noreferrer" class="btn-mono btn-mono-outline btn-sm">REPOSITORIO &nearr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Proyecto 4: Finanzy -->
+          <article class="project-item" data-category="web">
+            <div class="project-thumb">
+              <img src="assets/images/finanzy.jpg" alt="Finanzy Plataforma Fintech Angular" loading="lazy">
+              <span class="project-tag">ANGULAR &bull; RXJS</span>
+            </div>
+            <div class="project-details">
+              <h3 class="project-heading">Finanzy Investment</h3>
+              <p class="project-desc">
+                Plataforma fintech para balance de carteras de inversión y proyecciones financieras.
+              </p>
+              <div class="project-chips">
+                <span class="chip">Angular</span>
+                <span class="chip">TailwindCSS</span>
+                <span class="chip">RxJS</span>
+                <span class="chip">Finance API</span>
+              </div>
+              <div class="project-actions">
+                <a href="#contact" class="btn-mono btn-sm">DETALLES &rarr;</a>
+                <a href="https://github.com/AAQG" target="_blank" rel="noopener noreferrer" class="btn-mono btn-mono-outline btn-sm">REPOSITORIO &nearr;</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 04: GITHUB ACTIVIDAD -->
+    <section class="content-section" id="stats">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-tag">// 04. DISCIPLINA DE CÓDIGO</span>
+            <h2 class="section-title">Actividad en GitHub</h2>
+          </div>
+          <span style="font-family: var(--font-code); color: var(--silver-500); font-size: 0.9rem;">
+            @AAQG
+          </span>
+        </div>
+
+        <div class="streak-box">
+          <div class="streak-img-wrap">
             <a href="https://github.com/AAQG" target="_blank" rel="noopener noreferrer">
-              <img src="https://github-readme-streak-stats.herokuapp.com?user=AAQG&theme=dark" alt="GitHub Streak Stats de AAQG" loading="lazy">
+              <img src="https://github-readme-streak-stats.herokuapp.com?user=AAQG&theme=dark" alt="GitHub Streak Stats AAQG" loading="lazy">
             </a>
           </div>
 
-          <a href="https://github.com/AAQG" target="_blank" rel="noopener noreferrer" class="btn btn-secondary github-profile-link-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-            <span>Explorar Repositorios en GitHub</span>
+          <a href="https://github.com/AAQG" target="_blank" rel="noopener noreferrer" class="btn-mono btn-mono-outline">
+            EXPLORAR REPOSITORIOS GITHUB &nearr;
           </a>
         </div>
       </div>
     </section>
 
-    <!-- SECCIÓN METODOLOGÍA & BUENAS PRÁCTICAS -->
-    <section class="methodology-section" id="methodology">
+    <!-- SECCIÓN 05: CONTACTO DIRECTO -->
+    <section class="content-section" id="contact">
       <div class="container">
-        <div class="section-header">
-          <span class="section-tag">🧠 Metodología de Trabajo</span>
-          <h2 class="section-title">Cómo Aporto Valor al Equipo</h2>
+        <div class="section-head">
+          <div>
+            <span class="section-tag">// 05. DISPONIBILIDAD</span>
+            <h2 class="section-title">Conectar</h2>
+          </div>
           <p class="section-desc">
-            Más allá de escribir código, trabajo bajo procesos estructurados y colaborativos orientados a resultados.
-          </p>
-        </div>
-
-        <div class="methodology-grid">
-          <!-- Tarjeta 1: Agile Scrum -->
-          <div class="methodology-card">
-            <div class="method-icon-wrap">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-            </div>
-            <h3 class="methodology-title">Scrum & Kanban</h3>
-            <p class="methodology-desc">
-              Colaboración ágil orientada a objetivos con ceremonias de sprint, refinamiento continuo y seguimiento de tareas en herramientas como <strong>Jira</strong> o <strong>Trello</strong>.
-            </p>
-          </div>
-
-          <!-- Tarjeta 2: Clean Architecture -->
-          <div class="methodology-card">
-            <div class="method-icon-wrap" style="color: var(--angular-ruby); border-color: rgba(244, 63, 94, 0.3); background: rgba(244, 63, 94, 0.1);">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-            </div>
-            <h3 class="methodology-title">Clean Architecture & SOLID</h3>
-            <p class="methodology-desc">
-              Estructuración desacoplada en capas (Data, Domain, Presentation), facilitando pruebas unitarias, mantenibilidad a largo plazo y migraciones fluidas.
-            </p>
-          </div>
-
-          <!-- Tarjeta 3: Multiplataforma -->
-          <div class="methodology-card">
-            <div class="method-icon-wrap" style="color: var(--status-emerald); border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.1);">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
-            </div>
-            <h3 class="methodology-title">Enfoque Multiplataforma</h3>
-            <p class="methodology-desc">
-              Diseño unificado y consistencia visual entre la versión web y las aplicaciones móviles nativas para ofrecer una experiencia cohesiva al usuario final.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECCIÓN CONTACTO (📫 VAMOS A CONECTARNOS) -->
-    <section class="contact-section" id="contact">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">📫 Vamos a conectarnos</span>
-          <h2 class="section-title">¿Tienes un Proyecto en Mente?</h2>
-          <p class="section-desc">
-            No dudes en conectarte conmigo para colaborar en nuevos desafíos o hablar sobre tecnología.
+            Disponible para nuevas contrataciones o desarrollo de proyectos web y móviles.
           </p>
         </div>
 
         <div class="contact-grid">
-          <!-- Información y Canales Directos -->
-          <div class="contact-info-card">
-            <h3 class="contact-info-title">Construyamos juntos algo extraordinario</h3>
-            <p class="contact-info-desc">
-              Estoy abierto a oportunidades laborales, proyectos freelance y colaboraciones en desarrollo web o móvil.
-            </p>
-
-            <div class="contact-channels-list">
-              <!-- Email -->
-              <div class="contact-channel-item">
+          <!-- Canales Directos -->
+          <div class="channel-list">
+            <a href="https://www.linkedin.com/in/alex-quintanilla-garcia-112427238/" target="_blank" rel="noopener noreferrer" class="channel-card">
+              <div class="channel-info">
                 <div class="channel-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37h2.79V10.9H6.46M7.86 6.88a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z"/></svg>
                 </div>
                 <div>
-                  <div class="channel-label">Correo Electrónico</div>
-                  <a href="mailto:alexander.quispe.dev@gmail.com" class="channel-val" id="emailContactLink">alexander.quispe.dev@gmail.com</a>
+                  <div class="channel-name">LinkedIn Profesional</div>
+                  <div class="channel-sub">in/alex-quintanilla-garcia</div>
                 </div>
               </div>
+              <span>&nearr;</span>
+            </a>
 
-              <!-- Ubicación -->
-              <div class="contact-channel-item">
+            <a href="https://github.com/AAQG" target="_blank" rel="noopener noreferrer" class="channel-card">
+              <div class="channel-info">
                 <div class="channel-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                 </div>
                 <div>
-                  <div class="channel-label">Ubicación</div>
-                  <span class="channel-val">Ica, Perú 🇵🇪</span>
+                  <div class="channel-name">GitHub Profile</div>
+                  <div class="channel-sub">github.com/AAQG</div>
                 </div>
               </div>
+              <span>&nearr;</span>
+            </a>
 
-              <!-- LinkedIn -->
-              <div class="contact-channel-item">
+            <button class="channel-card" id="btnCopyEmailChannel" style="cursor: pointer; text-align: left;">
+              <div class="channel-info">
                 <div class="channel-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37h2.79V10.9H6.46M7.86 6.88a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z"/></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                 </div>
                 <div>
-                  <div class="channel-label">LinkedIn</div>
-                  <a href="https://www.linkedin.com/in/alex-quintanilla-garcia-112427238/" target="_blank" rel="noopener noreferrer" class="channel-val">in/alex-quintanilla-garcia</a>
+                  <div class="channel-name">Correo Electrónico</div>
+                  <div class="channel-sub">alex.quintanilla.dev@gmail.com</div>
                 </div>
               </div>
-
-              <!-- GitHub -->
-              <div class="contact-channel-item">
-                <div class="channel-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                </div>
-                <div>
-                  <div class="channel-label">GitHub Perfil</div>
-                  <a href="https://github.com/AAQG" target="_blank" rel="noopener noreferrer" class="channel-val">github.com/AAQG</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Botón Copiar Email -->
-            <button class="btn btn-secondary btn-sm" id="btnCopyEmail" style="width: 100%;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-              <span>Copiar Correo al Portapapeles</span>
+              <span>[COPIAR]</span>
             </button>
           </div>
 
-          <!-- Formulario de Mensaje -->
-          <div class="contact-form-card">
+          <!-- Formulario Directo -->
+          <div class="form-box">
             <form id="contactForm" novalidate>
-              <div class="form-group">
-                <label for="userName" class="form-label">Tu Nombre</label>
-                <input type="text" id="userName" name="userName" class="form-input" placeholder="Ej. Carlos Mendoza" required>
+              <div class="field-group">
+                <label for="userName" class="field-label">NOMBRE / EMPRESA</label>
+                <input type="text" id="userName" class="field-input" placeholder="Tu nombre" required>
               </div>
 
-              <div class="form-group">
-                <label for="userEmail" class="form-label">Tu Correo Electrónico</label>
-                <input type="email" id="userEmail" name="userEmail" class="form-input" placeholder="carlos@empresa.com" required>
+              <div class="field-group">
+                <label for="userEmail" class="field-label">CORREO ELECTRÓNICO</label>
+                <input type="email" id="userEmail" class="field-input" placeholder="correo@ejemplo.com" required>
               </div>
 
-              <div class="form-group">
-                <label for="userSubject" class="form-label">Asunto o Proyecto</label>
-                <input type="text" id="userSubject" name="userSubject" class="form-input" placeholder="App Móvil Flutter / Web Frontend" required>
+              <div class="field-group">
+                <label for="userMessage" class="field-label">MENSAJE / IDEA</label>
+                <textarea id="userMessage" class="field-textarea" placeholder="Descripción breve del requerimiento..." required></textarea>
               </div>
 
-              <div class="form-group">
-                <label for="userMessage" class="form-label">Mensaje</label>
-                <textarea id="userMessage" name="userMessage" class="form-textarea" placeholder="Cuéntame sobre tu idea o requerimiento..." required></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary" id="btnSubmitForm" style="width: 100%;">
-                <span>Enviar Mensaje</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              <button type="submit" class="btn-mono" style="width: 100%; justify-content: center;">
+                ENVIAR MENSAJE &rarr;
               </button>
             </form>
           </div>
@@ -833,42 +458,19 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-content">
-      <div class="footer-brand">
-        <span style="font-weight: 700; font-family: var(--font-mono);">&lt;AlexQuintanilla /&gt;</span>
-        <p class="footer-copy">
-          Diseñado y construido con HTML5, CSS moderno y JavaScript. &copy; 2026 Alex Quintanilla García (AAQG). Todos los derechos reservados.
-        </p>
-      </div>
-
-      <div class="footer-socials">
-        <a href="https://www.linkedin.com/in/alex-quintanilla-garcia-112427238/" target="_blank" rel="noopener noreferrer" class="btn btn-icon" title="LinkedIn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37h2.79V10.9H6.46M7.86 6.88a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.63-1.63-1.63z"/></svg>
-        </a>
-        <a href="https://github.com/AAQG" target="_blank" rel="noopener noreferrer" class="btn btn-icon" title="GitHub">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-        </a>
-        <a href="mailto:alexander.quispe.dev@gmail.com" class="btn btn-icon" title="Correo">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-        </a>
-      </div>
+  <!-- Footer Minimalista -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>&copy; 2026 ALEX QUINTANILLA GARCÍA // AAQG.DEV</span>
+      <span>ICA, PERÚ 🇵🇪 &bull; FRONT-END &amp; FLUTTER</span>
     </div>
   </footer>
 
-  <!-- Botón Volver Arriba -->
-  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Volver arriba">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-  </button>
-
-  <!-- Notificación Toast -->
-  <div class="toast-notification" id="toastMessage" role="alert" aria-live="assertive">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--flutter-cyan);"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-    <span id="toastText">¡Acción realizada con éxito!</span>
+  <!-- Toast -->
+  <div class="toast-notice" id="toastNotice" role="alert">
+    <span id="toastNoticeMsg">Mensaje copiado</span>
   </div>
 
-  <!-- Script Principal -->
   <script src="js/main.js"></script>
 </body>
 </html>

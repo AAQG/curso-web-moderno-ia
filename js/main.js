@@ -1,117 +1,115 @@
 /**
  * ==========================================================================
- * PORTAFOLIO WEB PROFESIONAL - AAQG
- * Lógica e Interacciones Dinámicas (Vanilla JavaScript ES6+)
+ * PORTAFOLIO ALEX QUINTANILLA GARCÍA (AAQG)
+ * Lógica: Insignia 3D Tilt, Dock Activo, Filtros y Notificaciones
  * ==========================================================================
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Control del Menú Móvil (Drawer)
-  initMobileMenu();
-
-  // 2. Efecto de Barra de Navegación al hacer Scroll
-  initNavbarScroll();
-
-  // 3. Filtro Dinámico de Proyectos (Todos / Móvil / Web)
+  initCursorSpotlight();
+  init3DBadgeTilt();
   initProjectFilters();
-
-  // 4. Copiar Correo Electrónico al Portapapeles
-  initCopyEmail();
-
-  // 5. Validación y Envío Interactivo del Formulario de Contacto
+  initCopyActions();
   initContactForm();
-
-  // 6. Contadores Numéricos Animados (IntersectionObserver)
-  initStatCounters();
-
-  // 7. Botón Scroll to Top
-  initScrollTop();
-
-  // 8. Resaltado de Enlaces de Navegación Activos al Desplazarse
-  initActiveNavOnScroll();
+  initDockScrollSpy();
 });
 
 /**
- * 1. Control de apertura/cierre del menú móvil responsive
+ * 1. Spotlight de fondo que sigue el cursor
  */
-function initMobileMenu() {
-  const menuBtn = document.getElementById('mobileMenuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileLinks = document.querySelectorAll('[data-mobile-link]');
+function initCursorSpotlight() {
+  const spotlight = document.getElementById('cursorSpotlight');
+  if (!spotlight) return;
 
-  if (!menuBtn || !mobileMenu) return;
-
-  const toggleMenu = () => {
-    const isOpen = mobileMenu.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', isOpen.toString());
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  };
-
-  const closeMenu = () => {
-    mobileMenu.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  };
-
-  menuBtn.addEventListener('click', toggleMenu);
-
-  // Cerrar al pulsar cualquier enlace del menú móvil
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  // Cerrar si se redimensiona a pantalla de escritorio
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768 && mobileMenu.classList.contains('open')) {
-      closeMenu();
-    }
-  });
+  window.addEventListener('mousemove', (e) => {
+    document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+    document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+  }, { passive: true });
 }
 
 /**
- * 2. Transición visual del Header en scroll
+ * 2. Efecto 3D Tilt y Reflejo Holográfico en la Insignia Personal (Badge)
  */
-function initNavbarScroll() {
-  const header = document.getElementById('headerNav');
-  if (!header) return;
+function init3DBadgeTilt() {
+  const badge = document.getElementById('devBadge');
+  const glare = document.getElementById('badgeGlare');
+  if (!badge) return;
 
-  const handleScroll = () => {
-    if (window.scrollY > 40) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+  const handleMouseMove = (e) => {
+    const rect = badge.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -12;
+    const rotateY = ((x - centerX) / centerX) * 12;
+
+    const glareX = (x / rect.width) * 100;
+    const glareY = (y / rect.height) * 100;
+
+    badge.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
+
+    if (glare) {
+      glare.style.background = `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255, 255, 255, 0.25) 0%, transparent 70%)`;
+      glare.style.opacity = '1';
     }
   };
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
+  const handleMouseLeave = () => {
+    badge.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    badge.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+
+    if (glare) {
+      glare.style.opacity = '0.7';
+      glare.style.background = 'linear-gradient(125deg, rgba(255, 255, 255, 0.15) 0%, transparent 60%)';
+    }
+  };
+
+  const handleMouseEnter = () => {
+    badge.style.transition = 'none';
+  };
+
+  badge.addEventListener('mousemove', handleMouseMove);
+  badge.addEventListener('mouseleave', handleMouseLeave);
+  badge.addEventListener('mouseenter', handleMouseEnter);
+
+  // Soporte táctil
+  badge.addEventListener('touchmove', (e) => {
+    if (!e.touches.length) return;
+    const touch = e.touches[0];
+    const rect = badge.getBoundingClientRect();
+    const x = touch.clientX - rect.left;
+    const y = touch.clientY - rect.top;
+
+    const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -8;
+    const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 8;
+
+    badge.style.transform = `perspective(800px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
+  }, { passive: true });
+
+  badge.addEventListener('touchend', handleMouseLeave);
 }
 
 /**
- * 3. Filtrado de proyectos por categoría (All, Mobile, Web)
+ * 3. Filtros de Proyectos
  */
 function initProjectFilters() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-
+  const filterBtns = document.querySelectorAll('.filter-pill');
+  const projectCards = document.querySelectorAll('.project-item');
   if (!filterBtns.length || !projectCards.length) return;
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Remover clase activa de todos y añadir al clickeado
-      filterBtns.forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-selected', 'false');
-      });
+      filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
 
-      const filterValue = btn.getAttribute('data-filter');
+      const filter = btn.getAttribute('data-filter');
 
       projectCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-
-        if (filterValue === 'all' || category === filterValue) {
+        const cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
           card.style.display = 'flex';
           setTimeout(() => {
             card.style.opacity = '1';
@@ -119,10 +117,10 @@ function initProjectFilters() {
           }, 20);
         } else {
           card.style.opacity = '0';
-          card.style.transform = 'translateY(15px)';
+          card.style.transform = 'translateY(10px)';
           setTimeout(() => {
             card.style.display = 'none';
-          }, 200);
+          }, 150);
         }
       });
     });
@@ -130,41 +128,39 @@ function initProjectFilters() {
 }
 
 /**
- * 4. Copiar Correo Electrónico con feedback Toast
+ * 4. Copiado de Correo con Toast
  */
-function initCopyEmail() {
-  const copyBtn = document.getElementById('btnCopyEmail');
-  const emailLink = document.getElementById('emailContactLink');
+function initCopyActions() {
+  const emailVal = 'alex.quintanilla.dev@gmail.com';
+  const btnHero = document.getElementById('btnCopyEmail');
+  const btnChannel = document.getElementById('btnCopyEmailChannel');
 
-  if (!copyBtn || !emailLink) return;
-
-  copyBtn.addEventListener('click', async () => {
-    const emailToCopy = emailLink.textContent.trim();
-
+  const copy = async () => {
     try {
       if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(emailToCopy);
+        await navigator.clipboard.writeText(emailVal);
       } else {
-        // Fallback clásico
-        const textArea = document.createElement('textarea');
-        textArea.value = emailToCopy;
-        textArea.style.position = 'fixed';
-        textArea.style.opacity = '0';
-        document.body.appendChild(textArea);
-        textArea.select();
+        const textarea = document.createElement('textarea');
+        textarea.value = emailVal;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
         document.execCommand('copy');
-        document.body.removeChild(textArea);
+        document.body.removeChild(textarea);
       }
-
-      showToast(`¡Correo copiado: ${emailToCopy}!`);
+      showToast(`Correo copiado: ${emailVal}`);
     } catch (err) {
-      showToast(`Correo: ${emailToCopy}`);
+      showToast(`Contacto: ${emailVal}`);
     }
-  });
+  };
+
+  if (btnHero) btnHero.addEventListener('click', copy);
+  if (btnChannel) btnChannel.addEventListener('click', copy);
 }
 
 /**
- * 5. Envío y validación interactiva del formulario
+ * 5. Envío y Validación del Formulario
  */
 function initContactForm() {
   const form = document.getElementById('contactForm');
@@ -175,142 +171,61 @@ function initContactForm() {
 
     const name = document.getElementById('userName').value.trim();
     const email = document.getElementById('userEmail').value.trim();
-    const subject = document.getElementById('userSubject').value.trim();
-    const message = document.getElementById('userMessage').value.trim();
+    const msg = document.getElementById('userMessage').value.trim();
 
-    // Validación básica de campos
-    if (!name || !email || !subject || !message) {
-      showToast('Por favor completa todos los campos requeridos.', true);
+    if (!name || !email || !msg) {
+      showToast('Por favor completa todos los campos.');
       return;
     }
 
-    // Validación de formato de correo
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      showToast('Por favor ingresa un correo electrónico válido.', true);
+      showToast('Ingresa un correo electrónico válido.');
       return;
     }
 
-    // Simulación de envío exitoso
-    showToast(`¡Gracias ${name}! Tu mensaje ha sido enviado exitosamente.`);
+    showToast(`¡Mensaje enviado con éxito, gracias ${name}!`);
     form.reset();
   });
 }
 
 /**
- * Función utilitaria para mostrar Toast animado
+ * Utilitario Toast
  */
-let toastTimeout;
-function showToast(message, isError = false) {
-  const toast = document.getElementById('toastMessage');
-  const toastText = document.getElementById('toastText');
+let toastTimer;
+function showToast(message) {
+  const toast = document.getElementById('toastNotice');
+  const toastMsg = document.getElementById('toastNoticeMsg');
+  if (!toast || !toastMsg) return;
 
-  if (!toast || !toastText) return;
-
-  toastText.textContent = message;
-
-  if (isError) {
-    toast.style.borderColor = 'var(--angular-ruby)';
-    toast.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(244, 63, 94, 0.3)';
-  } else {
-    toast.style.borderColor = 'var(--flutter-cyan)';
-    toast.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(56, 189, 248, 0.3)';
-  }
-
+  toastMsg.textContent = message;
   toast.classList.add('show');
 
-  clearTimeout(toastTimeout);
-  toastTimeout = setTimeout(() => {
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
     toast.classList.remove('show');
-  }, 4000);
+  }, 3000);
 }
 
 /**
- * 6. Animación de números en contadores estadísticos
+ * 6. Actualizar enlaces activos en el Dock al hacer scroll
  */
-function initStatCounters() {
-  const statNumbers = document.querySelectorAll('.stat-number');
-  if (!statNumbers.length) return;
-
-  let hasAnimated = false;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !hasAnimated) {
-        hasAnimated = true;
-        statNumbers.forEach(stat => {
-          const target = parseInt(stat.getAttribute('data-target'), 10);
-          if (isNaN(target)) return;
-
-          let current = 0;
-          const duration = 1500;
-          const increment = Math.max(1, Math.ceil(target / (duration / 30)));
-
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-              current = target;
-              clearInterval(timer);
-              stat.textContent = target === 100 ? '100%' : (target === 2 ? '2+' : target.toString());
-            } else {
-              stat.textContent = current.toString();
-            }
-          }, 30);
-        });
-      }
-    });
-  }, { threshold: 0.5 });
-
-  const statsSection = document.querySelector('.stats-grid');
-  if (statsSection) {
-    observer.observe(statsSection);
-  }
-}
-
-/**
- * 7. Control de Scroll to Top
- */
-function initScrollTop() {
-  const scrollBtn = document.getElementById('scrollTopBtn');
-  if (!scrollBtn) return;
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 400) {
-      scrollBtn.classList.add('visible');
-    } else {
-      scrollBtn.classList.remove('visible');
-    }
-  }, { passive: true });
-
-  scrollBtn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
-}
-
-/**
- * 8. Resaltado de enlaces en scroll
- */
-function initActiveNavOnScroll() {
+function initDockScrollSpy() {
   const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.desktop-nav .nav-link');
-
-  if (!sections.length || !navLinks.length) return;
+  const dockLinks = document.querySelectorAll('.dock-link');
+  if (!sections.length || !dockLinks.length) return;
 
   window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY + 120;
-
+    const scrollY = window.scrollY + 150;
     sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute('id');
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
 
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        navLinks.forEach(link => {
+      if (scrollY >= top && scrollY < top + height) {
+        dockLinks.forEach(link => {
           link.classList.remove('active');
-          if (link.getAttribute('href') === `#${sectionId}`) {
+          if (link.getAttribute('href') === `#${id}`) {
             link.classList.add('active');
           }
         });
